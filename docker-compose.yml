@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    container_name: autorent-web
+    ports:
+      - "80:80"
+    volumes:
+      # Bind mount for live reload during development
+      # Remove this volume block for a pure image-based deploy
+      - ./html:/usr/share/nginx/html:ro
+    restart: unless-stopped
